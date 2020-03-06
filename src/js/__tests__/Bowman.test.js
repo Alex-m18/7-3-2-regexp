@@ -25,11 +25,11 @@ test('should throw', () => {
 test('should damage', () => {
   const character = new Bowman('vasya');
   character.damage(100);
-  expect(character.health).toBe(25);
+  expect(character.health).toBeCloseTo(25, 2);
   character.damage(10);
-  expect(character.health).toBe(17.5);
+  expect(character.health).toBeCloseTo(17.5, 2);
   character.damage(100);
-  expect(character.health).toBe(0);
+  expect(character.health).toBeCloseTo(0, 2);
 });
 
 test('should levelUp', () => {
@@ -60,29 +60,29 @@ test('should use powerMode', () => {
   const character = new Bowman('vasya');
 
   character.enablePowerMode();
-  expect(character.health).toBe(200);
-  expect(character.defence).toBe(50);
-  expect(character.attack).toBe(50);
+  expect(character.health).toBeCloseTo(200, 2);
+  expect(character.defence).toBeCloseTo(50, 2);
+  expect(character.attack).toBeCloseTo(50, 2);
   expect(character.powerModeEnabled).toBe(true);
 
-  expect(character.attack).toBe(50);
+  expect(character.attack).toBeCloseTo(50, 2);
   expect(character.powerModeEnabled).toBe(true);
 
-  expect(character.attack).toBe(50);
+  expect(character.attack).toBeCloseTo(50, 2);
   expect(character.powerModeEnabled).toBe(false);
 
   character.enablePowerMode();
   expect(character.powerModeEnabled).toBe(false);
-  expect(character.health).toBe(100);
-  expect(character.defence).toBe(25);
-  expect(character.attack).toBe(25);
+  expect(character.health).toBeCloseTo(100, 2);
+  expect(character.defence).toBeCloseTo(25, 2);
+  expect(character.attack).toBeCloseTo(25, 2);
 });
 
 test('should create levelUpped Bowman', () => {
   const character = new Bowman('vasya', 5);
   expect(character.level).toBe(5);
-  expect(character.defence).toBe(51.84);
-  expect(character.attack).toBe(51.84);
+  expect(character.defence).toBeCloseTo(51.84, 2);
+  expect(character.attack).toBeCloseTo(51.84, 2);
 });
 
 test('should throw on decreasing level', () => {

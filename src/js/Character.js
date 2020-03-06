@@ -53,23 +53,23 @@ class Character {
   get attack() {
     if (this.private.powerModeAttacks) {
       this.private.powerModeAttacks -= 1;
-      return Number((this.private.attack * 2).toFixed(2));
+      return this.private.attack * 2;
     }
-    return Number(this.private.attack.toFixed(2));
+    return this.private.attack;
   }
 
   // set attack(value) { this.private.attack = value; }
 
   get health() {
-    if (this.private.powerModeAttacks) return Number((this.private.health * 2).toFixed(2));
-    return Number(this.private.health.toFixed(2));
+    if (this.private.powerModeAttacks) return this.private.health * 2;
+    return this.private.health;
   }
 
   // set health(value) { this.private.health = value; }
 
   get defence() {
-    if (this.private.powerModeAttacks) return Number((this.private.defence * 2).toFixed(2));
-    return Number(this.private.defence.toFixed(2));
+    if (this.private.powerModeAttacks) return this.private.defence * 2;
+    return this.private.defence;
   }
 
   // set defence(value) { this.private.defence = value; }
